@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workunit>
+    <invokers>
+        <invoker type="userorg:create" action="init" caption="User Organization" />
+        <invoker type="userorg:open" action="open" caption="User Organization" />
+    </invokers>
+        
+    <code class="tagabukid.subay.models.UserOrgController" />
+    
+    <pages>
+        <page template="tagabukid.subay.views.MasterUserOrganizationPage" />
+    </pages>
+</workunit>
