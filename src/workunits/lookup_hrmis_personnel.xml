@@ -28,7 +28,7 @@
             }
 
             List fetchList( Map params ) { 
-                def list = svc.lookupProfile(params)
+                def list = svc.lookupEntityPersonnel(params)
                 return list.each{ formatAddress( it?.address, ", " ) } 
             }
 
