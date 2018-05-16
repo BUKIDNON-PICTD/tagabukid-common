@@ -1,0 +1,47 @@
+<workunit extends="wtemplates/LookupController.xml">
+    
+    <invokers>
+        
+        <invoker type="lookup:tagabukid_hrmis_personnel" caption="Personnel Lookup" target="popup" > </invoker>
+        
+    </invokers>
+     <code>
+
+        import com.rameses.rcp.common.*
+        import com.rameses.rcp.annotations.*
+        import com.rameses.osiris2.client.*
+        import com.rameses.osiris2.common.*
+
+        class HrisPersonnelLookupController extends LookupController
+        {
+            @Service("TagabukidLookupService")
+            def svc
+            
+            Column[] getColumns() {
+                return [
+                    new Column(name:"entityno", caption:"Entity No", width:80),
+                    new Column(name:"name", caption:"Name", width:250),
+                    new Column(name:"address.text", caption:"Address", width:250),
+                    new Column(name:"gender", caption:"Gender", width:70 ,alignment:'center'),
+                    new Column(name:"birthdate", caption:"Birth Date", width:70,alignment:'center'), 
+                ]
+            }
+
+            List fetchList( Map params ) { 
+                def list = svc.lookupProfile(params)
+                return list.each{ formatAddress( it?.address, ", " ) } 
+            }
+
+            void formatAddress( x, delimiter ) { 
+                if ( !x ) return;
+
+                def txt1 = [x.unitno, x.bldgno, x.bldgname].findAll{ (it? true: false) }.join(" ").trim(); 
+                def txt2 = [x.street, x.subdivision].findAll{ (it? true: false) }.join(" ").trim(); 
+                def txt3 = [x.barangay?.name, x.city, x.municipality, x.province].findAll{ (it? true: false) }.join(", ").trim(); 
+                def result = [txt1, txt2, txt3].findAll{ (it? true: false) }.join( delimiter ).trim(); 
+                if (result) x.text = result; 
+            } 
+        }  
+    
+    </code>
+</workunit>
