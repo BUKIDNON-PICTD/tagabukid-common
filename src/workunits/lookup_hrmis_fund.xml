@@ -1,0 +1,33 @@
+<workunit extends="wtemplates/LookupController.xml">
+    
+    <invokers>
+        
+        <invoker type="lookup:tagabukid_hrmis_fund" caption="Tranche Lookup" target="popup" > </invoker>
+        
+    </invokers>
+     <code>
+
+        import com.rameses.rcp.common.*
+        import com.rameses.rcp.annotations.*
+        import com.rameses.osiris2.client.*
+        import com.rameses.osiris2.common.*
+
+        class HrisFundLookupController extends LookupController
+        {
+            @Service("TagabukidLookupService")
+            def svc
+            
+            Column[] getColumns() {
+                return [
+                    new Column(name:"entity.name", caption:"Name", width:250),
+                    new Column(name:"entity.acronymabbreviation", caption:"Code", width:250),
+                ]
+            }
+
+            List fetchList( Map params ) { 
+                return svc.lookupTranche(params)
+            }
+        }  
+    
+    </code>
+</workunit>
