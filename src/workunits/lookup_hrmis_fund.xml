@@ -2,7 +2,7 @@
     
     <invokers>
         
-        <invoker type="lookup:tagabukid_hrmis_fund" caption="Tranche Lookup" target="popup" > </invoker>
+        <invoker type="lookup:tagabukid_hrmis_fund" caption="Fund Lookup" target="popup" > </invoker>
         
     </invokers>
      <code>
@@ -19,13 +19,13 @@
             
             Column[] getColumns() {
                 return [
-                    new Column(name:"entity.name", caption:"Name", width:250),
-                    new Column(name:"entity.acronymabbreviation", caption:"Code", width:250),
+                    new Column(name:"location", caption:"Name", width:250),
+                    new Column(name:"code", caption:"Code", width:250),
                 ]
             }
 
             List fetchList( Map params ) { 
-                return svc.lookupTranche(params)
+                return svc.lookupFund(params)
             }
         }  
     
