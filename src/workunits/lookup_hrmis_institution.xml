@@ -1,0 +1,34 @@
+<workunit extends="wtemplates/LookupController.xml">
+    
+    <invokers>
+        
+        <invoker type="lookup:tagabukid_hrmis_institution" caption="Educational Institution Lookup" target="popup" > </invoker>
+        
+    </invokers>
+     <code>
+
+        import com.rameses.rcp.common.*
+        import com.rameses.rcp.annotations.*
+        import com.rameses.osiris2.client.*
+        import com.rameses.osiris2.common.*
+
+        class HrisEducationalInstitutionLookupController extends LookupController
+        {
+            @Service("TagabukidLookupService")
+            def svc
+            
+            Column[] getColumns() {
+                return [
+                    new Column(name:"name", caption:"Name", width:250),
+                    //new Column(name:"city.name", caption:"City Name", width:250),
+                    new Column(name:"address.addressdetails", caption:"Address", width:250),
+                ]
+            }
+
+            List fetchList( Map params ) { 
+                return svc.lookupEducationalInstitution(params)
+            }
+        }  
+    
+    </code>
+</workunit>
