@@ -22,7 +22,7 @@
          
             Column[] getColumns() {
                 return [
-                    new Column(name:"ItemNo", caption:"Item", width:70),
+                    new Column(name:"itemno", caption:"Item", width:70),
                     new Column(name:"jobposition.name", caption:"Position", width:250),
                     new Column(name:"finfund.name", caption:"Fund", width:250),
                     new Column(name:"finaccounttitle.name", caption:"Account Title", width:250),
