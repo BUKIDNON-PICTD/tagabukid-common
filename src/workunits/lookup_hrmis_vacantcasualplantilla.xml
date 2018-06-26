@@ -2,7 +2,7 @@
     
     <invokers>
         
-        <invoker type="lookup:tagabukid_hrmis_plantilla" caption="Plantilla Lookup" target="popup" > </invoker>
+        <invoker type="lookup:tagabukid_hrmis_vacantcasualplantilla" caption="Plantilla Lookup" target="popup" > </invoker>
         
     </invokers>
      <code>
@@ -35,8 +35,13 @@
                 if(!caller.entity.org){
                     throw new Exception("Org Unit is required.");
                 }
+                
+                if(!caller.selectedAppointmentItem.personnel){
+                    throw new Exception("Personnel Name is required.");
+                }
                 params.org = caller.entity.org
-                return svc.lookupPlantilla(params)
+                params.personnel = caller.selectedAppointmentItem.personnel
+                return svc.lookupVacantCasualPlantilla(params)
             }
         }  
     
