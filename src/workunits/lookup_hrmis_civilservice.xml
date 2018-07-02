@@ -1,4 +1,4 @@
-<workunit extends="wtemplates/LookupController.xml">
+<!--<workunit extends="wtemplates/LookupController.xml">
     
     <invokers>
         
@@ -20,7 +20,7 @@
             Column[] getColumns() {
                 return [
                     new Column(name:"name", caption:"Civil Service Eligibility", width:250),
-                    <!-- new Column(name:"code", caption:"Code", width:250), -->
+                     new Column(name:"code", caption:"Code", width:250), 
                 ]
             }
 
@@ -30,4 +30,15 @@
         }  
     
     </code>
+</workunit>-->
+
+<workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
+          schemaName="master_tbleligibilitytype" allowCreate="true">
+   <invokers>
+       <invoker type="lookup:tagabukid_hrmis_eligibility" caption="Civil Service Eligibility Types" 
+                  action="init" target="popup" height="400" width="700"
+                  cols="name,description,code"/>
+       
+       
+   </invokers>
 </workunit>
