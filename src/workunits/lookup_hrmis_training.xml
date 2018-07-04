@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
+         schemaName="hrmis_tblprofiletrainingprogramattended">
+    <invokers>
+        <invoker type="lookup:tagabukid_hrmis_training" caption="Lookup Training Program"
+                 action="init" target="popup" height="700"  
+                 cols="trainingtitle,attendancefrom,attendanceto,numberofhours,sponsor"/>
+    </invokers>
+</workunit>
