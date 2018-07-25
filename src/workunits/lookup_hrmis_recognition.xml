@@ -4,6 +4,6 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_recognition" caption="Lookup Recognition"
                  action="init" target="popup" height="700"  
-                 cols="recognition"/>
+                 cols="name"/>
     </invokers>
 </workunit> 
