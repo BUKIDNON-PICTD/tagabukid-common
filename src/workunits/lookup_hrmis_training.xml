@@ -3,7 +3,7 @@
          schemaName="master_tbltraining">
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_training" caption="Lookup Training Program"
-                 action="init" target="popup" height="700"  
-                 cols="name,description,code"/>
+                 action="init" target="popup" height="700" width="1000"
+                 cols="name,trainingsubcategory.name,sponsorinstitutiontype.name,trainingcomprehensiveness.name"/>
     </invokers>
 </workunit>
