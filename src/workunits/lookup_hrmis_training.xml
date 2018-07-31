@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
-         schemaName="hrmis_tbltraining">
+         schemaName="master_tbltraining">
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_training" caption="Lookup Training Program"
                  action="init" target="popup" height="700"  
