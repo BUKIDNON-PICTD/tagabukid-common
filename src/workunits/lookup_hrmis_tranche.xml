@@ -19,8 +19,8 @@
             
             Column[] getColumns() {
                 return [
-                    new Column(name:"entity.name", caption:"Name", width:250),
-                    new Column(name:"entity.acronymabbreviation", caption:"Code", width:250),
+                    new Column(name:"name", caption:"Name", width:250),
+                    new Column(name:"acronymabbreviation", caption:"Code", width:250),
                 ]
             }
 

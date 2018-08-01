@@ -2,7 +2,7 @@
     
     <invokers>
         
-        <invoker type="lookup:tagabukid_hrmis_jobposition" caption="Job Position Lookup" target="popup" > </invoker>
+        <invoker type="lookup:tagabukid_hrmis_institution" caption="Educational Institution Lookup" target="popup" > </invoker>
         
     </invokers>
      <code>
@@ -12,7 +12,7 @@
         import com.rameses.osiris2.client.*
         import com.rameses.osiris2.common.*
 
-        class HrisJobPositionLookupController extends LookupController
+        class HrisEducationalInstitutionLookupController extends LookupController
         {
             @Service("TagabukidLookupService")
             def svc
@@ -20,12 +20,13 @@
             Column[] getColumns() {
                 return [
                     new Column(name:"name", caption:"Name", width:250),
-                    new Column(name:"code", caption:"Code", width:250),
+                    //new Column(name:"city.name", caption:"City Name", width:250),
+                    new Column(name:"address.addressdetails", caption:"Address", width:250),
                 ]
             }
 
             List fetchList( Map params ) { 
-                return svc.lookupJobPosition(params)
+                return svc.lookupEducationalInstitution(params)
             }
         }  
     
