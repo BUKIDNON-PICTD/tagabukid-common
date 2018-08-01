@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
-         schemaName="master_tbljobposition">
+         schemaName="master_tblemptemploymentstatus">
     <invokers>
-        <invoker type="lookup:tagabukid_hrmis_jobposition" caption="Job Position Lookup"
+        <invoker type="lookup:tagabukid_hrmis_employmentstatus" caption="Lookup Employment Status"
                  action="init" target="popup" height="700"  
-                 cols="name,code"/>
+                 cols="name"/>
     </invokers>
 </workunit>

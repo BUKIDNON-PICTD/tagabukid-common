@@ -33,11 +33,11 @@
 </workunit>-->
 
 <workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
-          schemaName="master_tbleligibilitytype" allowCreate="true">
+          schemaName="master_tbleligibility" allowCreate="true">
    <invokers>
        <invoker type="lookup:tagabukid_hrmis_eligibility" caption="Civil Service Eligibility Types" 
                   action="init" target="popup" height="400" width="700"
-                  cols="name,description,code"/>
+                  cols="name,description,code,eligibilitytype.name,eligibilitytype.code,eligibilitytype.description"/>
        
        
    </invokers>
