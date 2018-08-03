@@ -1,0 +1,47 @@
+<workunit extends="wtemplates/LookupController.xml">
+    
+    <invokers>
+        
+        <invoker type="lookup:tagabukid_hrmis_servicerecordaction" caption="Action Lookup" target="popup" > </invoker>
+        
+    </invokers>
+     <code>
+
+        import com.rameses.rcp.common.*
+        import com.rameses.rcp.annotations.*
+        import com.rameses.osiris2.client.*
+        import com.rameses.osiris2.common.*
+
+        class HrisActionLookupController extends LookupController
+        {
+            @Service("TagabukidLookupService")
+            def svc
+            
+            @Caller
+            def caller
+         
+            Column[] getColumns() {
+                return [
+                    new Column(name:"name", caption:"Name", width:70),
+                    new Column(name:"code", caption:"Code", width:250),
+
+
+                ]
+            }
+
+            List fetchList( Map params ) { 
+<!--                if(!caller.entity.org){
+                    throw new Exception("Something is required.");
+                }
+                
+                if(!caller.selectedAppointmentItem.personnel){
+                    throw new Exception("Personnel Name is required.");
+                }
+                params.org = caller.entity.org
+                params.personnel = caller.selectedAppointmentItem.personnel-->
+                return svc.lookupServiceRecordAction(params)
+            }
+        }  
+    
+    </code>
+</workunit>
