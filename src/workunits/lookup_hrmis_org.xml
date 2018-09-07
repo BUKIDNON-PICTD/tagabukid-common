@@ -26,15 +26,16 @@
             }
 
             List fetchList( Map params ) {
+                println orgs
                 if(parentid){
                     params.filter = "AND parentorgunitid = '"+ parentid +"'"
                 }else if(!parentid && orgs){
-                    params.filter = "AND parentorgunitid IN ('" + orgs.orgid.join("','") + "')"
+                    params.filter = "AND parentorgunitid IN ('" + orgs.orgunitid.join("','") + "')"
                 }else{
                     params.filter = "AND 1 = 1"
                 }
         
-                
+               
                 
                 if(!params.searchtext){
                     params.searchtext = searchtext;
