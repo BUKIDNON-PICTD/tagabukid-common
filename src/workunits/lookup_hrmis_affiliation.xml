@@ -4,6 +4,7 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_affiliation" caption="Lookup Affiliation"
                  action="init" target="popup" height="700"  
-                 cols="name,professionalorganizationorassociationcategory.name"/>
+                 cols="name,professionalorganizationorassociationcategory.name"
+                 orderBy="name"/>
     </invokers>
 </workunit>

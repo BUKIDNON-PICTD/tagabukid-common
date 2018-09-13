@@ -4,6 +4,7 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_trainingcategory" caption="Lookup Training Category"
                  action="init" target="popup" height="700"  
-                 cols="name,description"/>
+                 cols="name,description"
+                 orderBy="name"/>
     </invokers>
 </workunit>

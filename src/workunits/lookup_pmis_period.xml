@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
+         schemaName="hrmis_pds">
+    <invokers>
+        <invoker type="lookup:tagabukid_pmis_period" caption="Select Employee"
+                 action="init" target="popup" height="400" width="700"  
+                 customFilter=" parentid = 'ROOT' "
+                 cols="title,code"
+                 orderBy="title"/>
+    </invokers>
+</workunit>

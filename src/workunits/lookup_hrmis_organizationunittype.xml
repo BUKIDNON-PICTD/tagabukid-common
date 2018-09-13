@@ -4,6 +4,7 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_organizationunittype" caption="Lookup Organization Unit Type"
                  action="init" target="popup" height="700"  
-                 cols="description"/>
+                 cols="description"
+                 orderBy="name"/>
     </invokers>
 </workunit>

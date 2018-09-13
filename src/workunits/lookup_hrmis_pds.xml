@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
+         schemaName="hrmis_pds">
+    <invokers>
+        <invoker type="lookup:tagabukid_hrmis_pds" caption="Select Employee"
+                 action="init" target="popup" height="400" width="700"  
+                 cols="prenametitle,person.name,nameextension,postnametitle"
+                 orderBy="person.name"/>
+    </invokers>
+</workunit>
