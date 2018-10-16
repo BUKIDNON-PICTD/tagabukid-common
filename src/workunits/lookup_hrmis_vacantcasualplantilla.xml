@@ -36,11 +36,11 @@
                     throw new Exception("Org Unit is required.");
                 }
                 
-                if(!caller.selectedAppointmentItem.personnel){
+                if(!caller.selectedAppointmentItem.pds){
                     throw new Exception("Personnel Name is required.");
                 }
                 params.org = caller.entity.org
-                params.personnel = caller.selectedAppointmentItem.personnel
+                params.pds = caller.selectedAppointmentItem.pds
                 return svc.lookupVacantCasualPlantilla(params)
             }
         }  
