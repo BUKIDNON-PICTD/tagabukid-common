@@ -4,6 +4,7 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_barangay" caption="Lookup Barangay"
                  action="init" target="popup" height="700"  
-                 cols="name,description,acronymorabbreviation"/>
+                 cols="name,description,acronymorabbreviation"
+                 orderBy="name"/>
     </invokers>
 </workunit>

@@ -76,7 +76,7 @@ is divided into following sections:
             <and>
                 <isset property="javac.profile"/>
                 <length length="0" string="${javac.profile}" when="greater"/>
-                <matches pattern="((1\.[89])|9)(\..*)?" string="${javac.source}"/>
+                <matches pattern="1\.[89](\..*)?" string="${javac.source}"/>
             </and>
         </condition>
         <condition property="do.archive">
@@ -828,7 +828,7 @@ is divided into following sections:
                     </chainedmapper>
                 </pathconvert>
                 <taskdef classname="org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs" classpath="${libs.CopyLibs.classpath}" name="copylibs"/>
-                <copylibs compress="${jar.compress}" excludeFromCopy="${copylibs.excludes}" index="${jar.index}" indexMetaInf="${jar.index.metainf}" jarfile="${dist.jar}" manifest="@{manifest}" manifestencoding="UTF-8" rebase="${copylibs.rebase}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
+                <copylibs compress="${jar.compress}" excludeFromCopy="${copylibs.excludes}" index="${jar.index}" indexMetaInf="${jar.index.metainf}" jarfile="${dist.jar}" manifest="@{manifest}" rebase="${copylibs.rebase}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
                     <fileset dir="${build.classes.dir}" excludes="${dist.archive.excludes}"/>
                     <manifest>
                         <attribute name="Class-Path" value="${jar.classpath}"/>
@@ -840,7 +840,7 @@ is divided into following sections:
     </target>
     <target name="-init-presetdef-jar">
         <presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/1">
-            <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}" manifestencoding="UTF-8">
+            <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}">
                 <j2seproject1:fileset dir="${build.classes.dir}" excludes="${dist.archive.excludes}"/>
             </jar>
         </presetdef>
@@ -966,12 +966,12 @@ is divided into following sections:
         <copy encoding="${manifest.encoding}" file="${manifest.file}" outputencoding="UTF-8" tofile="${tmp.manifest.file}"/>
     </target>
     <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+main.class.available" name="-do-jar-set-mainclass">
-        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+        <manifest file="${tmp.manifest.file}" mode="update">
             <attribute name="Main-Class" value="${main.class}"/>
         </manifest>
     </target>
     <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+profile.available" name="-do-jar-set-profile">
-        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+        <manifest file="${tmp.manifest.file}" mode="update">
             <attribute name="Profile" value="${javac.profile}"/>
         </manifest>
     </target>

@@ -37,7 +37,8 @@
    <invokers>
        <invoker type="lookup:tagabukid_hrmis_eligibility" caption="Civil Service Eligibility Types" 
                   action="init" target="popup" height="400" width="700"
-                  cols="name,description,code,eligibilitytype.name,eligibilitytype.code,eligibilitytype.description"/>
+                  cols="name,description,code,eligibilitytype.name,eligibilitytype.code,eligibilitytype.description"
+                  orderBy="name"/>
        
        
    </invokers>

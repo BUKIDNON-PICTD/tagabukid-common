@@ -4,6 +4,7 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_separationtype" caption="Lookup Separation Type"
                  action="init" target="popup" height="700" width="1000"
-                 cols="name,code"/>
+                 cols="name,code"
+                 orderBy="name"/>
     </invokers>
 </workunit>

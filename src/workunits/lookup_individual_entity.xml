@@ -3,7 +3,8 @@
    <invokers>
        <invoker type="lookup:individualwide" caption="Lookup Individual Entity" 
                   action="init" target="popup" height="400" width="700"
-                  cols="entityno,lastname,firstname,middlename,address.text,gender,type,birthdate,entityname"/>
+                  cols="entityno,lastname,firstname,middlename,address.text,gender,type,birthdate,entityname"
+                  orderBy="entityname"/>
        
        
    </invokers>

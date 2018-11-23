@@ -4,6 +4,7 @@
     <invokers>
         <invoker type="lookup:tagabukid_hrmis_skill" caption="Lookup Skill"
                  action="init" target="popup" height="700"  
-                 cols="name,skillcategory.name,skillcompetencylevel.name"/>
+                 cols="name,skillcategory.name,skillcompetencylevel.name"
+                 orderBy="name"/>
     </invokers>
 </workunit>

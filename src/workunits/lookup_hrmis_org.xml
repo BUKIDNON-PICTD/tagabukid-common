@@ -3,7 +3,7 @@
         <invoker type="lookup:tagabukid_hrmis_org" caption="Organization Lookup" target="popup" > </invoker>
     </invokers>
     <code>
-
+ <![CDATA[
         import com.rameses.rcp.common.*
         import com.rameses.rcp.annotations.*
         import com.rameses.osiris2.client.*
@@ -16,6 +16,8 @@
 
             def state;
             def searchtext;
+            def parentid;
+            def orgs;
             Column[] getColumns() {
                 return [
                     new Column(name:"name", caption:"Name", width:250),
@@ -24,12 +26,23 @@
             }
 
             List fetchList( Map params ) {
+                println orgs
+                if(parentid){
+                    params.filter = "AND parentorgunitid = '"+ parentid +"'"
+                }else if(!parentid && orgs){
+                    params.filter = "AND parentorgunitid IN ('" + orgs.orgunitid.join("','") + "')"
+                }else{
+                    params.filter = "AND 1 = 1"
+                }
+        
+               
+                
                 if(!params.searchtext){
                     params.searchtext = searchtext;
                 }
                 return svc.lookupOrgUnit(params)
             }
         }  
-
+ ]]>
     </code>
 </workunit>
