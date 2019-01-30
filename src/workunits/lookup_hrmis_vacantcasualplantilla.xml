@@ -12,7 +12,7 @@
         import com.rameses.osiris2.client.*
         import com.rameses.osiris2.common.*
 
-        class HrisPlantillaLookupController extends LookupController
+        class HrisCasualPlantillaLookupController extends LookupController
         {
             @Service("TagabukidLookupService")
             def svc
@@ -32,6 +32,7 @@
             }
 
             List fetchList( Map params ) { 
+         
                 if(!caller.entity.org){
                     throw new Exception("Org Unit is required.");
                 }

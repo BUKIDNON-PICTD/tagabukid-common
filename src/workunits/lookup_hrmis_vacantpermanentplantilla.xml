@@ -12,7 +12,7 @@
         import com.rameses.osiris2.client.*
         import com.rameses.osiris2.common.*
 
-        class HrisPlantillaPermanentLookupController extends LookupController
+        class HrisPermanentPlantillaLookupController extends LookupController
         {
             @Service("TagabukidLookupService")
             def svc
@@ -32,15 +32,16 @@
             }
 
             List fetchList( Map params ) { 
-                if(!caller.entity.org){
+                
+                if(!caller.entity.org ){
                     throw new Exception("Org Unit is required.");
                 }
                 
-                if(!caller.selectedAppointmentItem.pds){
+                if(!caller.entity.pds){
                     throw new Exception("Personnel Name is required.");
                 }
                 params.org = caller.entity.org
-                params.pds = caller.selectedAppointmentItem.pds
+                params.pds = caller.entity.pds
                 return svc.lookupVacantPermanentPlantilla(params)
             }
         }  

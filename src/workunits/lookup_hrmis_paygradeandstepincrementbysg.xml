@@ -1,0 +1,45 @@
+<workunit extends="wtemplates/LookupController.xml">
+    
+    <invokers>
+        
+        <invoker type="lookup:tagabukid_hrmis_vacantpermanentplantillabysg" caption="Plantilla Lookup" target="popup" > </invoker>
+        
+    </invokers>
+     <code>
+
+        import com.rameses.rcp.common.*
+        import com.rameses.rcp.annotations.*
+        import com.rameses.osiris2.client.*
+        import com.rameses.osiris2.common.*
+
+        class HrisPermanentPlantillaLookupController extends LookupController
+        {
+            @Service("TagabukidLookupService")
+            def svc
+            
+            @Caller
+            def caller
+         
+            @Service('QueryService') 
+            def querySvc; 
+         
+            Column[] getColumns() {
+                return [
+                    new Column(name:"step", caption:"Step", width:70),
+                ]
+            }
+
+            List fetchList( Map params ) { 
+                println caller.entity.plantilla
+                if(!caller.entity.plantilla ){
+                    throw new Exception("Plantilla Item is required.");
+                }
+               
+                def p = [_schemaname: 'master_tblpaygradeandstepincrement'];
+                    p.findBy = [ 'grade': caller.entity.plantilla.jobposition.paygrade.grade];
+                return querySvc.getList( p )
+            }
+        }  
+    
+    </code>
+</workunit>
